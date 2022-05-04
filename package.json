@@ -1,4 +1,28 @@
+
 {
+  "name": "tubeflix",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "engine": {
+    "node": "14.x",
+    "heroku-postbuild": "npm run build"
+  },
+  "type": "module",
+  "scripts": {
+    "heroku-postbuild": "npm run build",
+    "start": "node index.js",
+    "dev": "nodemon -e js, html, css, ejs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maycomorais/Tubeflix.git"
+  },
+  "author": "Maycon Morais",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maycomorais/Tubeflix.git"
+  },
   "dependencies": {
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
