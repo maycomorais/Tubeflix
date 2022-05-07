@@ -23,13 +23,17 @@ img#logo {
     height: 80%;
     padding-left: 2rem;    
 }
+section#links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
 ul#navegacao {
     display: flex;
     gap: 16px;
-    flex-direction: row;
     list-style: none;
     margin-left: 30px;
-    margin-top: 15px;
 }
 ul#navegacao a {
     text-decoration: none;
@@ -38,8 +42,86 @@ ul#navegacao a {
 ul#navegacao a:hover {
     color: rgb(175, 175, 175);
 }
+ul#icones {
+    display: flex;
+    gap: 16px;
+    flex-direction: row;
+    list-style: none;
+    height: 50px;
+    
+}
 main {
     min-height: 80%;
+}
+/* CONTAINER SECTION */
+section#container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 20px;
+    gap: 16px;
+}
+/* CONTAINER DO CARD */
+section article.card {
+    height: 200px;
+    width: 350px;
+    /* border: 1px solid red; */
+    transition: transform .75s;
+}
+section article.card:hover {
+    transform: scale(1.05);
+}
+/* CONTEINAR DA IMAGEM */
+article.card div.card_img {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    /* border: 1px solid red; */
+    
+}
+a.edtdel {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    text-shadow: black 0.1em 0.1em 0.1em;
+    transition: transform .75s; 
+    opacity: 0.8;
+}
+a.edtdel:hover {
+    transform: scale(1.30);
+    color: rgb(86, 4, 4);
+    opacity: 1;
+}
+
+.texto {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 10px;
+    margin-top: 8px;
+    margin-left: 300px;
+}
+/* IMAGEM */
+article.card div.card_img img {
+    height: 100%;
+    width: 100%;
+}
+/* NOME */
+.card_name {
+    display: flex;
+    position: absolute;
+    margin-top: 170px;
+    max-width:80%;
+}
+p {
+    text-decoration: none;
+    flex-wrap: wrap;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    text-shadow: black 0.1em 0.1em 0.1em;
+    width: 100%;
 }
 footer {
     height: 10%;

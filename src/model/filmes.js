@@ -37,4 +37,10 @@ export const filmes = connection.define('filmes', {
     createdAt: false,
     updatedAt: false,
     timestamps: false
-})
+});
+
+const initTable = async () => {
+    await filmes.sync()
+}
+
+initTable()

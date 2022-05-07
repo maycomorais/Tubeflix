@@ -10,7 +10,24 @@
 <body>
     <%- include('./partials/header.ejs') %> 
     <main>
-        <h1>Olá Mundo!</h1>
+        <section id="container">
+            <% listFilmes.forEach(element => { %>
+            <article class="card">
+                <div class="card_img">
+                    <img src="<%= element.img %> " alt="<%= element.nome %>">
+                    <div class="texto">
+                        <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                        <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                        <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                    </div>
+                    <div class="card_name">
+                        <p><%= element.nome %></p>
+                        <!-- <a id="nomefilme" href="/detalhes/<%= element.id %>"></a> -->
+                    </div>
+                </div>
+            </article>
+            <% }) %>
+        </section>
     </main>
     
     <%- include('./partials/footer.ejs') %> 
