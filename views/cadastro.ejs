@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
     <title> Criar </title>
 </head>
-
 <body>
     <%- include('./partials/header.ejs') %>
     <main>
@@ -19,12 +17,12 @@
                     <legend> Criar Filme </legend>
                     <fieldset class="fieldset__data">
                         <input type="text" name="nome" required>
-                        <label for="nome"> Nome Filme </label>
+                        <label for="nome"> Filme </label>
                     </fieldset>
 
                     <fieldset class="fieldset__data">
                         <input type="text" name="diretor" required>
-                        <label for="diretor"> Nome Diretor </label>
+                        <label for="diretor"> Diretor </label>
                     </fieldset>
 
                     <fieldset class="fieldset__data">
@@ -43,7 +41,7 @@
                     </fieldset>
 
                     <fieldset class="fieldset__data">
-                        <input type="text" name="iframe" required>
+                        <input type="text" name="video" required>
                         <label for="video"> Link YouTube </label>
                     </fieldset>
                     <div id="btn__container">

@@ -16,6 +16,7 @@ app.use(express.json())
 app.set('view engine', 'ejs');
 app.use(routers);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({extended: true}));
 
 app.listen(port, () => {
     console.log(`Olá mundo, estou rodando na porta ${port}`)
