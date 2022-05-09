@@ -12,28 +12,51 @@ body {
     max-width: 100%;
     max-height: 100%;
 }
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* CABEÇALHO */
 header {
     display: flex;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.363) ;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 2;
-    height: 10%;
+    height: 5%;
     flex-direction: row;
     align-items: center;
 }
-img#logo {
-    height: 80%;
-    padding-left: 2rem;    
+
+header::after > section.container {
+    background-color: black;
 }
-section#links {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* LOGO */
+div#logo img {
+    height: 50px;
+    flex-grow: 1;
 }
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* MENU NAVEGAÇÃO */
 ul#navegacao {
     display: flex;
     gap: 16px;
@@ -47,46 +70,67 @@ ul#navegacao a {
 ul#navegacao a:hover {
     color: rgb(175, 175, 175);
 }
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* MENU ÍCONES */
+div#esquerdo {
+    flex-grow: 2;
+}
 ul#icones {
     display: flex;
     gap: 16px;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
     list-style: none;
-    height: 50px;
     
 }
+ul#icones a {
+    text-decoration: none;
+    color: white;
+}
+ul#icones a:hover {
+    color: rgb(175, 175, 175);
+}
+ul#icones img {
+    height: 35px;
+    border-radius: 5px;
+}
+/* ---------- */
+/* ---------- */
+/* ---------- */
 main {
     min-height: 80%;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
-/* CONTAINER SECTION */
-section#container {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 20px;
-    padding: 20px;
-    gap: 16px;
-}
-/* CONTAINER DO CARD */
-section article.card {
-    height: 200px;
-    width: 350px;
-    /* border: 1px solid red; */
-    transition: transform .75s;
-}
-section article.card:hover {
-    transform: scale(1.05);
-}
-/* CONTEINAR DA IMAGEM */
-article.card div.card_img {
-    display: flex;
-    justify-content: center;
-    height: 100%;
+
+#slider {
     width: 100%;
-    /* border: 1px solid red; */
-    
+    height: 50vh;
+    position: relative;
 }
-a.edtdel {
+
+#slider img {
+    
+    position: absolute;
+    width: 100%;
+    max-height: 100%;
+    object-fit:cover;
+}
+.texto1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    position: absolute;
+    gap: 10px;
+    padding-top: 20%;
+    margin-left: 95%;
+    padding-right: 50px;
+}
+
+a.edtdel1 {
     text-decoration: none;
     color: rgb(255, 255, 255);
     font-weight: 600;
@@ -94,27 +138,82 @@ a.edtdel {
     transition: transform .75s; 
     opacity: 0.8;
 }
-a.edtdel:hover {
+a.edtdel1:hover {
     transform: scale(1.30);
     color: rgb(86, 4, 4);
     opacity: 1;
 }
 
-.texto {
+
+/* DIV PRINCIPAL HEADER */
+div#links {
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    position: absolute;
-    gap: 10px;
-    margin-top: 8px;
-    margin-left: 300px;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    width: 100%;
 }
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+
+h2 {
+    margin-top: 30px;
+}
+/* CONTAINER SECTION */
+section#container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 16px;
+    
+    
+}
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* CONTAINER DO CARD */
+section article.card {
+    height: 200px;
+    width: 350px;
+    transition: transform .75s;
+}
+section article.card:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* CONTAINER DA IMAGEM */
+article.card div.card_img {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
 /* IMAGEM */
 article.card div.card_img img {
     height: 100%;
     width: 100%;
 }
-/* NOME */
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* NOME DENTRO DO CARD*/
 .card_name {
     display: flex;
     position: absolute;
@@ -129,6 +228,37 @@ p {
     text-shadow: black 0.1em 0.1em 0.1em;
     width: 100%;
 }
+
+/* ICONES EDITAR, DELETAR E INFORMAÇÕES */
+.texto {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    gap: 10px;
+    margin-top: 8px;
+    margin-left: 300px;
+}
+
+a.edtdel {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    text-shadow: black 0.1em 0.1em 0.1em;
+    transition: transform .75s; 
+    opacity: 0.8;
+}
+a.edtdel:hover {
+    transform: scale(1.30);
+    color: rgb(86, 4, 4);
+    opacity: 1;
+}
+
+/* ---------- */
+/* ---------- */
+/* ---------- */
+
+/* FOOTER */
 footer {
-    height: 10%;
+    height: 15%;
 }

@@ -5,11 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/style.css">
+    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <title>PÁGINA INICIAL</title>
 </head>
 <body>
     <%- include('./partials/header.ejs') %> 
     <main>
+        <section class="container1">
+            <div id="slider">
+                <% listFilmes.forEach(element => { %>
+                    <div class="slides1">
+                        <img src="<%= element.img %> " alt="<%= element.nome %> ">
+                        <div class="texto1">
+                            <a class="edtdel1" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                            <a class="edtdel1" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                            <a class="edtdel1" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                        </div>
+                    </div>            
+               <% }) %>
+            </div> 
+        </section>
+        <h2>ÚLTIMOS FILMES ADICIONADOS</h2>
         <section id="container">
             <% listFilmes.forEach(element => { %>
             <article class="card">
@@ -22,14 +39,12 @@
                     </div>
                     <div class="card_name">
                         <p><%= element.nome %></p>
-                        <!-- <a id="nomefilme" href="/detalhes/<%= element.id %>"></a> -->
                     </div>
                 </div>
             </article>
             <% }) %>
         </section>
     </main>
-    
     <%- include('./partials/footer.ejs') %> 
 </body>
 </html>

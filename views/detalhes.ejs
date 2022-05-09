@@ -8,21 +8,27 @@
     <title> Detalhes </title>
 </head>
 <body>
+    <script>
+        function clearUrl(teste){
+            const newString = teste.replace(/watch/g, 'embed/').replace(/[?v=]/g, '')
+            console.log(newString)
+        }
+    </script>
     <%- include('./partials/header.ejs') %>
     <main>
         <div id="sub__header">
             <%= filmesDetalhes.nome %>
         </div>
         <section id="details_container">
-            <iframe>
+            <iframe
                 width="560"
                 height="315"
-                src="<%= filmesDetalhes.video %>"
+                src= "https://youtube.com/embed/<%= filmesDetalhes.video %>"
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
-            </iframe>
+            ></iframe>
             <table> 
                 <thead> 
                     <th colspan="2"> Detalhes </th>
@@ -37,7 +43,7 @@
                         <td> <%= filmesDetalhes.duracao %> minutos  </td>
                     </tr>
                     <tr>
-                        <td> Lançament </td>
+                        <td> Lançamento </td>
                         <td> <%= filmesDetalhes.ano %> </td>
                     </tr>
                 </tbody>
@@ -46,6 +52,7 @@
         </section>
     </main>
     <%- include('./partials/footer.ejs') %>
+    
 </body>
 
 </html>
