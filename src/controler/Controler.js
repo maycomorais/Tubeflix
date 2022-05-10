@@ -4,9 +4,9 @@ import { filmes } from '../model/filmes.js'
 export const getIndex = async (req, res) => {
     try {
     const listFilmes = await filmes.findAll();
-    console.log(listFilmes);
+    console.log(listFilmes[listFilmes.length-1].img);
     res.render('index.ejs', {
-        listFilmes
+        listFilmes,
     });
     } catch(error) {
         res.send(error.message)
@@ -39,18 +39,18 @@ export const getDeletar = async (req, res) => {
 }
 
 export const getCriar = (req, res) => {
-    res.render('cadastro.ejs')
+    res.render('cadastro.ejs', {toggle: false})
 }
 
 export const postCriar = async (req, res) => {
-    const { nome, diretor, img, ano, duracao, video } = req.body
+    const { nome, diretor, img, ano, duracao, genero, video } = req.body
     console.log({ nome, diretor, img, ano, duracao, video })
     try {
-        if(!nome || !diretor || !img || !ano || !duracao || !video){
+        if(!nome || !diretor || !img || !ano || !duracao || ! !video){
             res.send('Todos os campos são obrigatórios!')
         } else {
-            await filmes.create({nome, diretor, img, ano, duracao, video})
-            res.redirect('/')
+            await filmes.create({nome, diretor, img, ano, duracao, genero, video})
+            res.render('cadastro.ejs', {toggle: true})
         }
     }
     catch(error){
@@ -72,13 +72,14 @@ export const getEditar = async (req, res) => {
 
 export const postEditar = async (req, res) => {
     try {
-        const { nome, diretor, ano, img, duracao, video } = req.body
+        const { nome, diretor, ano, img, duracao, genero, video } = req.body
         await filmes.update({
             nome: nome,
             diretor: diretor,
             ano: ano,
             img: img,
             duracao: duracao,
+            genero: genero,
             video: video
         }, {
             where: {

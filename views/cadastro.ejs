@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="https://tubeflix.com/images/tubeflix.png">
     <title> Criar </title>
 </head>
 <body>
@@ -41,8 +42,13 @@
                     </fieldset>
 
                     <fieldset class="fieldset__data">
+                        <input type="text" name="genero" required>
+                        <label for="genero"> Gênero (minúsculo) </label>
+                    </fieldset>
+
+                    <fieldset class="fieldset__data">
                         <input type="text" name="video" required>
-                        <label for="video"> Link YouTube </label>
+                        <label for="video"> ID (Letras e números após o =) do Link YouTube </label>
                     </fieldset>
                     <div id="btn__container">
                         <button id="btn__submit" type="submit"> Enviar </button>
@@ -52,6 +58,17 @@
         </section>
     </main>
     <%- include('./partials/footer.ejs') %>
+    <% if (toggle) { %>
+        <script>
+            Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!!!',
+            text: 'Seu filme foi cadastrado!',
+            timer: 5000
+              })
+              setInterval(() => {window.location.href = "/"}, 5000)
+            </script>
+    <% } %>   
 </body>
 
 </html>

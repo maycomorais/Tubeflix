@@ -8,7 +8,7 @@ dotenv.config();
 console.log(process.env.DB_BASE)
 
 const app = express();
-const port = 3005;
+const PORT = process.env.PORT || 3005;
 let __dirname = path.resolve(path.dirname(''));
 
 app.use(express.urlencoded({extended: true}))
@@ -18,7 +18,7 @@ app.use(routers);
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: true}));
 
-app.listen(port, () => {
-    console.log(`Olá mundo, estou rodando na porta ${port}`)
+app.listen(PORT, () => {
+    console.log(`Olá mundo, estou rodando na porta ${PORT}`)
 });
 

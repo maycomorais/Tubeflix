@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/css/style.css">
-    <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <title>PÁGINA INICIAL</title>
+    <link rel="shortcut icon" href="https://tubeflix.com/images/tubeflix.png">
+
+    <!-- linkando os arquivos Owl Carousel 2 css -->
+    <link rel="stylesheet" href="/css/carousel-owl (1)/carousel-owl/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/carousel-owl (1)/carousel-owl/owl.carousel.min.css">
+    
+    <title>TUBE FLIX</title>
 </head>
 <body>
     <%- include('./partials/header.ejs') %> 
@@ -16,35 +22,150 @@
             <div id="slider">
                 <% listFilmes.forEach(element => { %>
                     <div class="slides1">
-                        <img src="<%= element.img %> " alt="<%= element.nome %> ">
+                        
+                        <img src="<%= listFilmes[listFilmes.length-1].img %> " alt="<%= listFilmes[listFilmes.length-1].nome %> ">
                         <div class="texto1">
-                            <a class="edtdel1" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
-                            <a class="edtdel1" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
-                            <a class="edtdel1" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                            <a class="edtdel1" href="/editar/<%= listFilmes[listFilmes.length-1].id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                            <a class="edtdel1" href="/deletar/<%= listFilmes[listFilmes.length-1].id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                            <a class="edtdel1" href="/detalhes/<%= listFilmes[listFilmes.length-1].id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
                         </div>
-                    </div>            
+                    </div>           
                <% }) %>
             </div> 
         </section>
-        <h2>ÚLTIMOS FILMES ADICIONADOS</h2>
-        <section id="container">
-            <% listFilmes.forEach(element => { %>
-            <article class="card">
-                <div class="card_img">
-                    <img src="<%= element.img %> " alt="<%= element.nome %>">
-                    <div class="texto">
-                        <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
-                        <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
-                        <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
-                    </div>
-                    <div class="card_name">
-                        <p><%= element.nome %></p>
-                    </div>
-                </div>
-            </article>
-            <% }) %>
-        </section>
+        <h3>ÚLTIMOS FILMES ADICIONADOS</h3>
+        <div class="carousel-movie">
+            <div class="owl-carousel owl-theme" id="cardFilme">
+                    <% listFilmes.forEach(element => { %>
+                    <article class="card">
+                        <div class="card_img">
+                            <img src="<%= element.img %> " alt="<%= element.nome %>">
+                            <div class="texto">
+                                <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                                <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                            </div>
+                            <div class="card_name">
+                                <p><%= element.nome %></p>
+                            </div>
+                        </div>
+                    </article>
+                    <% }) %>
+            </div>        
+        </div>
+        <h3>AÇÃO</h3>
+        <div class="carousel-movie">
+            <div class="owl-carousel owl-theme" id="cardFilme">
+                    <% listFilmes.forEach(element => { %>
+                        <% if (element.genero == 'ação') { %>
+                            <article class="card">
+                                <div class="card_img">
+                                    <img src="<%= element.img %> " alt="<%= element.nome %>">
+                                    <div class="texto">
+                                        <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                                        <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                                        <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                                    </div>
+                                    <div class="card_name">
+                                        <p><%= element.nome %></p>
+                                    </div>
+                                </div>
+                            </article>
+                        <% } %>
+                    
+                    <% }) %>
+            </div>        
+        </div>
+        <h3>COMÉDIA</h3>
+        <div class="carousel-movie">
+            <div class="owl-carousel owl-theme" id="cardFilme">
+                    <% listFilmes.forEach(element => { %>
+                    <article class="card">
+                        <div class="card_img">
+                            <img src="<%= element.img %> " alt="<%= element.nome %>">
+                            <div class="texto">
+                                <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                                <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                            </div>
+                            <div class="card_name">
+                                <p><%= element.nome %></p>
+                            </div>
+                        </div>
+                    </article>
+                    <% }) %>
+            </div>        
+        </div>
+        <h3>DRAMA</h3>
+        <div class="carousel-movie">
+            <div class="owl-carousel owl-theme" id="cardFilme">
+                    <% listFilmes.forEach(element => { %>
+                    <article class="card">
+                        <div class="card_img">
+                            <img src="<%= element.img %> " alt="<%= element.nome %>">
+                            <div class="texto">
+                                <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                                <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                            </div>
+                            <div class="card_name">
+                                <p><%= element.nome %></p>
+                            </div>
+                        </div>
+                    </article>
+                    <% }) %>
+            </div>        
+        </div>
+        <h3>SUSPENSE</h3>
+        <div class="carousel-movie">
+            <div class="owl-carousel owl-theme" id="cardFilme">
+                    <% listFilmes.forEach(element => { %>
+                    <article class="card">
+                        <div class="card_img">
+                            <img src="<%= element.img %> " alt="<%= element.nome %>">
+                            <div class="texto">
+                                <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                                <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                            </div>
+                            <div class="card_name">
+                                <p><%= element.nome %></p>
+                            </div>
+                        </div>
+                    </article>
+                    <% }) %>
+            </div>        
+        </div>
+        <h3>TERROR</h3>
+        <div class="carousel-movie">
+            <div class="owl-carousel owl-theme" id="cardFilme">
+                    <% listFilmes.forEach(element => { %>
+                    <article class="card">
+                        <div class="card_img">
+                            <img src="<%= element.img %> " alt="<%= element.nome %>">
+                            <div class="texto">
+                                <a class="edtdel" href="/editar/<%= element.id %> " alt="Editar"><i class="fa-solid fa-pencil"></i></a>
+                                <a class="edtdel" href="/deletar/<%= element.id %>" alt="Deletar"><i class="fa-solid fa-trash"></i></a>
+                                <a class="edtdel" href="/detalhes/<%= element.id %>" alt="Detalhes"><i class="fa-solid fa-circle-info"></i></i></a>
+                            </div>
+                            <div class="card_name">
+                                <p><%= element.nome %></p>
+                            </div>
+                        </div>
+                    </article>
+                    <% }) %>
+            </div>        
+        </div>
+
+
     </main>
-    <%- include('./partials/footer.ejs') %> 
+
+    <!-- linkando os arquivos Owl Carousel 2 js -->
+    <script src="/js/carousel-owl/carousel-owl/jquery.min.js"></script>
+    <script src="/js/carousel-owl/carousel-owl/owl.carousel.min.js"></script>
+    <script src="/js/carousel-owl/carousel-owl/setup.js"></script>
+
+    <%- include('./partials/footer.ejs') %>
+    
 </body>
 </html>

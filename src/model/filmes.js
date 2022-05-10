@@ -28,6 +28,10 @@ export const filmes = connection.define('filmes', {
         type: Sequelize.INTEGER,
         allowNull: false
     },
+    genero: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     video: {
         type: Sequelize.STRING,
         allowNull: false
