@@ -6,7 +6,7 @@ dotenv.config()
 // console.log(process.env.DB_USER);
 
 export const connection = new Sequelize(
-    'postgres://mayconfilmes_user:GsuQE8PZB6k2D021lvmrKSdIjD1i8uSt@dpg-c9stn590gd0dkoo6l6og-a/mayconfilmes', {
+        process.env.DB_URL, {
         dialect: 'postgres',
         dialectOptions: {
             ssl: {
