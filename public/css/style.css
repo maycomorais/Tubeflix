@@ -442,3 +442,75 @@ form button#btn__submit {
     height: 40px;
     width: 60px;
 }
+
+@media (max-width: 769px—1024px) {
+    section#container {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 16px;
+    }
+    /* CONTAINER DO CARD */
+    article.card {
+        height: 150px;
+        width: 280px;
+        transition: transform .75s;
+    }
+    article.card:hover {
+        transform: scale(1.05);
+    }
+
+    /* ---------- */
+    /* ---------- */
+    /* ---------- */
+
+    /* CONTAINER DA IMAGEM */
+    article.card div.card_img {
+        display: flex;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+    }
+
+    /* ---------- */
+    /* ---------- */
+    /* ---------- */
+
+    /* IMAGEM */
+    article.card div.card_img img {
+        height: 100%;
+        width: 100%;
+    }
+
+    /* ---------- */
+    /* ---------- */
+    /* ---------- */
+
+    /* NOME DENTRO DO CARD*/
+    .card_name {
+        display: flex;
+        position: absolute;
+        margin-top: 100px;
+        max-width:80%;
+    }
+    p {
+        text-decoration: none;
+        flex-wrap: wrap;
+        color: rgb(255, 255, 255);
+        font-weight: 600;
+        text-shadow: black 0.1em 0.1em 0.1em;
+        width: 100%;
+    }
+
+    /* ICONES EDITAR, DELETAR E INFORMAÇÕES */
+    .texto {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: absolute;
+        gap: 10px;
+        margin-top: 8px;
+        margin-left: 200px;
+    }
+
+}
