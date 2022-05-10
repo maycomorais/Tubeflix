@@ -46,7 +46,7 @@ export const postCriar = async (req, res) => {
     const { nome, diretor, img, ano, duracao, genero, video } = req.body
     console.log({ nome, diretor, img, ano, duracao, video })
     try {
-        if(!nome || !diretor || !img || !ano || !duracao || ! !video){
+        if(!nome || !diretor || !img || !ano || !duracao || !genero || !video){
             res.send('Todos os campos são obrigatórios!')
         } else {
             await filmes.create({nome, diretor, img, ano, duracao, genero, video})
